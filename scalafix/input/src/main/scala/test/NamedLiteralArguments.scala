@@ -1,9 +1,9 @@
 /*
-rule = Namedliteralarguments_v1
- */
-package fix
+rule = NamedLiteralArguments
+*/
+package test
 
-object Namedliteralarguments_v1_Test {
+object NamedLiteralArguments {
   def complete(isSuccess: Boolean): Unit = ()
   def finish(n: Int, isError: Boolean): Unit = ()
   complete(true)
