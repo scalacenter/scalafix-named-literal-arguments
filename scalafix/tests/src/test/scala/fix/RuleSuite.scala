@@ -2,6 +2,6 @@ package fix
 
 import scalafix.testkit.SemanticRuleSuite
 
-class Namedliteralarguments_Tests extends SemanticRuleSuite() {
+class RuleSuite extends SemanticRuleSuite() {
   runAllTests()
 }

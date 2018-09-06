@@ -1,15 +1,15 @@
 lazy val V = _root_.scalafix.sbt.BuildInfo
 inThisBuild(
   List(
-    organization := "com.example",
-    homepage := Some(url("https://github.com/com/example")),
+    organization := "com.geirsson",
+    homepage := Some(url("https://github.com/olafurpg/named-literal-arguments")),
     licenses := List("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")),
     developers := List(
       Developer(
-        "example-username",
-        "Example Full Name",
-        "example@email.com",
-        url("https://example.com")
+        "olafurpg",
+        "Olafur Geirssson",
+        "olafur@geirsson.com",
+        url("https://geirsson.com")
       )
     ),
     scalaVersion := V.scala212,
@@ -23,7 +23,7 @@ inThisBuild(
 skip in publish := true
 
 lazy val rules = project.settings(
-  moduleName := "scalafix",
+  moduleName := "named-literal-arguments",
   libraryDependencies += "ch.epfl.scala" %% "scalafix-core" % V.scalafixVersion
 )
 
@@ -46,5 +46,5 @@ lazy val tests = project
     scalafixTestkitInputClasspath :=
       fullClasspath.in(input, Compile).value
   )
-  .dependsOn(input, rules)
+  .dependsOn(rules)
   .enablePlugins(ScalafixTestkitPlugin)
