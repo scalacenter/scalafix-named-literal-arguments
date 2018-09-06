@@ -7,9 +7,16 @@ class Namedliteralarguments_v1
     extends SemanticRule("Namedliteralarguments_v1") {
 
   override def fix(implicit doc: SemanticDocument): Patch = {
-    doc.tree.collect {
-      case t @ q"true" => Patch.addLeft(t, "isSuccess = ")
-    }.asPatch
+    doc.tree
+      .collect {
+        case Term.Apply(_, args) =>
+          args.collect {
+            case t @ Lit.Boolean(_) =>
+              Patch.addLeft(t, "isSuccess = ")
+          }
+      }
+      .flatten
+      .asPatch
   }
 
 }
