@@ -16,7 +16,8 @@ inThisBuild(
     addCompilerPlugin(scalafixSemanticdb),
     scalacOptions ++= List(
       "-Yrangepos"
-    )
+    ),
+    classLoaderLayeringStrategy in Compile := ClassLoaderLayeringStrategy.Flat
   )
 )
 
