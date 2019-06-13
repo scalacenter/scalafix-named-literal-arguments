@@ -17,7 +17,7 @@ inThisBuild(
     scalacOptions ++= List(
       "-Yrangepos"
     ),
-    classLoaderLayeringStrategy in Compile := ClassLoaderLayeringStrategy.Flat
+    // classLoaderLayeringStrategy in Compile := ClassLoaderLayeringStrategy.Flat
   )
 )
 
