@@ -1,7 +1,7 @@
 lazy val V = _root_.scalafix.sbt.BuildInfo
 inThisBuild(
   List(
-    organization := "scalacenter",
+    organization := "ch.epfl.scala",
     homepage := Some(url("https://github.com/scalacenter/named-literal-arguments")),
     licenses := List("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")),
     developers := List(
