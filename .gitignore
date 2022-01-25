@@ -36,3 +36,10 @@ website/i18n/*
 !website/i18n/en.json
 
 out/
+out/
+
+.bloop/
+.bsp/
+.metals/
+.vscode/
+metals.sbt
