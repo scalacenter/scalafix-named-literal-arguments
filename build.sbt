@@ -1,8 +1,8 @@
 lazy val V = _root_.scalafix.sbt.BuildInfo
 inThisBuild(
   List(
-    organization := "com.geirsson",
-    homepage := Some(url("https://github.com/olafurpg/named-literal-arguments")),
+    organization := "scalacenter",
+    homepage := Some(url("https://github.com/scalacenter/named-literal-arguments")),
     licenses := List("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")),
     developers := List(
       Developer(
@@ -12,40 +12,40 @@ inThisBuild(
         url("https://geirsson.com")
       )
     ),
-    scalaVersion := V.scala212,
-    addCompilerPlugin(scalafixSemanticdb),
-    scalacOptions ++= List(
-      "-Yrangepos"
-    ),
+    scalaVersion := V.scala213,
+    semanticdbEnabled := true,
+    semanticdbIncludeInJar := true,
+    semanticdbVersion := scalafixSemanticdb.revision,
+    scalacOptions ++= List("-Yrangepos")
     // classLoaderLayeringStrategy in Compile := ClassLoaderLayeringStrategy.Flat
   )
 )
 
-skip in publish := true
+(publish / skip) := true
 
 lazy val rules = project.settings(
-  moduleName := "named-literal-arguments",
+  moduleName := "scalafix-named-literal-arguments",
   libraryDependencies += "ch.epfl.scala" %% "scalafix-core" % V.scalafixVersion
 )
 
 lazy val input = project.settings(
-  skip in publish := true
+  (publish / skip) := true
 )
 
 lazy val output = project.settings(
-  skip in publish := true
+  (publish / skip) := true
 )
 
 lazy val tests = project
   .settings(
-    skip in publish := true,
+    (publish / skip) := true,
     libraryDependencies += "ch.epfl.scala" % "scalafix-testkit" % V.scalafixVersion % Test cross CrossVersion.full,
     scalafixTestkitOutputSourceDirectories :=
-      sourceDirectories.in(output, Compile).value,
+      (output / Compile / unmanagedSourceDirectories).value,
     scalafixTestkitInputSourceDirectories :=
-      sourceDirectories.in(input, Compile).value,
+      (input / Compile / unmanagedSourceDirectories).value,
     scalafixTestkitInputClasspath :=
-      fullClasspath.in(input, Compile).value
+      (input / Compile / fullClasspath).value
   )
   .dependsOn(rules)
   .enablePlugins(ScalafixTestkitPlugin)
