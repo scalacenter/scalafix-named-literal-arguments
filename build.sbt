@@ -24,7 +24,7 @@ inThisBuild(
 (publish / skip) := true
 
 lazy val rules = project.settings(
-  moduleName := "scalafix-named-literal-arguments",
+  moduleName := "named-literal-arguments",
   libraryDependencies += "ch.epfl.scala" %% "scalafix-core" % V.scalafixVersion
 )
 
