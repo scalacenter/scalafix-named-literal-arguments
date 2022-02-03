@@ -17,7 +17,6 @@ inThisBuild(
     semanticdbIncludeInJar := true,
     semanticdbVersion := scalafixSemanticdb.revision,
     scalacOptions ++= List("-Yrangepos")
-    // classLoaderLayeringStrategy in Compile := ClassLoaderLayeringStrategy.Flat
   )
 )
 
