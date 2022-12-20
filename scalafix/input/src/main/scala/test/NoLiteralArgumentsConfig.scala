@@ -16,5 +16,6 @@ class NoLiteralArgumentsConfig {
   complete("done") // assert: NoLiteralArguments
   complete(42) // assert: NoLiteralArguments
   complete(true) // assert: NoLiteralArguments
+  complete(true) // scalafix:ok; rule suppression
   complete('o')
 }

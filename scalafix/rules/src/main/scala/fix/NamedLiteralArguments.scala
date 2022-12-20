@@ -18,7 +18,7 @@ class NamedLiteralArguments extends SemanticRule("NamedLiteralArguments") {
                         if method.parameterLists.nonEmpty =>
                       val parameter = method.parameterLists.head(i)
                       val parameterName = parameter.displayName
-                      Patch.addLeft(t, s"$parameterName = ")
+                      Patch.addLeft(t, s"$parameterName = ").atomic
                     case _ =>
                       // Do nothing, the symbol is not a method
                       Patch.empty

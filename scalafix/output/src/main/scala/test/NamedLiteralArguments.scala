@@ -6,5 +6,6 @@ object NamedLiteralArguments {
   complete(isSuccess = true)
   complete(isSuccess = true)
   complete(isSuccess = false)
+  complete(false) // scalafix:ok; rule suppression
   finish(2, isError = true)
 }
